@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c3w2hdk1amtrf"]
+
+[ext_resource type="Script" uid="uid://c6vrblkm5i53v" path="res://components/tooltip_interface/tooltip_interface.gd" id="1_70osd"]
+[ext_resource type="FontFile" uid="uid://bueoxfwuwpoja" path="res://entitites/mitocondria/aseprite_font.ttf" id="2_70osd"]
+
+[node name="ToolTipInterface" type="PanelContainer" unique_id=847701418]
+offset_right = 59.0
+offset_bottom = 16.0
+script = ExtResource("1_70osd")
+metadata/_edit_group_ = true
+
+[node name="InternalMargin" type="MarginContainer" parent="." unique_id=745708853]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="InfoContainer" type="HBoxContainer" parent="InternalMargin" unique_id=904691051]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Action" type="Label" parent="InternalMargin/InfoContainer" unique_id=874970151]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/line_spacing = 3
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_70osd")
+theme_override_font_sizes/font_size = 8
+
+[node name="ItemBackground" type="PanelContainer" parent="InternalMargin/InfoContainer" unique_id=1604601089]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemTexture" type="TextureRect" parent="InternalMargin/InfoContainer/ItemBackground" unique_id=1271935266]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12.215, 0)
+layout_mode = 2
+stretch_mode = 3

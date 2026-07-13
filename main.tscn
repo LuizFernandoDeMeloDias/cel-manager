@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://io0ek1xbj6n2"]
+
+[ext_resource type="PackedScene" uid="uid://byrfky8va0n1u" path="res://entitites/celula/celula.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bnb5fvjeveeht" path="res://item_template.tscn" id="2_0xm2m"]
+
+[node name="main" type="Node2D" unique_id=2144966769]
+
+[node name="Celula" parent="." unique_id=101789754 instance=ExtResource("1_ig7tw")]
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=2081948761]
+
+[node name="HUD" type="Control" parent="HUDLayer" unique_id=2145663729]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ItemsMargin" type="MarginContainer" parent="HUDLayer/HUD" unique_id=1784022638]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 24.0
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="ItemsContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=453442565]
+layout_mode = 2
+
+[node name="Item" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer" unique_id=1793976347 instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Item2" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer" unique_id=283323171 instance=ExtResource("2_0xm2m")]
+layout_mode = 2

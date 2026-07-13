@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bgy261nd6rso5"]
+
+[ext_resource type="Texture2D" uid="uid://bpc1hwms33gm5" path="res://components/button/button_normal.aseprite" id="1_fhogs"]
+[ext_resource type="Texture2D" uid="uid://can37mvdmj7tb" path="res://components/button/button_press.aseprite" id="2_5x0gd"]
+[ext_resource type="Texture2D" uid="uid://cmml6lmyy6tav" path="res://components/button/button_hover.aseprite" id="3_73fnh"]
+[ext_resource type="Script" uid="uid://cbh6vw816rj4" path="res://components/button/default_button.gd" id="4_aoc7p"]
+[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="5_fhogs"]
+
+[node name="DefaultButton" type="TextureButton" unique_id=1268889426]
+offset_right = 32.0
+offset_bottom = 16.0
+texture_normal = ExtResource("1_fhogs")
+texture_pressed = ExtResource("2_5x0gd")
+texture_hover = ExtResource("3_73fnh")
+script = ExtResource("4_aoc7p")
+tool_tip_item_texture = ExtResource("5_fhogs")
+tool_tip_action = "Usar"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
