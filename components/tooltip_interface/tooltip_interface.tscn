@@ -6,12 +6,14 @@
 [node name="ToolTipInterface" type="PanelContainer" unique_id=847701418]
 offset_right = 59.0
 offset_bottom = 16.0
+mouse_filter = 2
 script = ExtResource("1_70osd")
 metadata/_edit_group_ = true
 
 [node name="InternalMargin" type="MarginContainer" parent="." unique_id=745708853]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -20,6 +22,7 @@ theme_override_constants/margin_bottom = 4
 [node name="InfoContainer" type="HBoxContainer" parent="InternalMargin" unique_id=904691051]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 3
 
 [node name="Action" type="Label" parent="InternalMargin/InfoContainer" unique_id=874970151]
@@ -35,9 +38,11 @@ theme_override_font_sizes/font_size = 8
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="ItemTexture" type="TextureRect" parent="InternalMargin/InfoContainer/ItemBackground" unique_id=1271935266]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(12.215, 0)
 layout_mode = 2
+mouse_filter = 2
 stretch_mode = 3

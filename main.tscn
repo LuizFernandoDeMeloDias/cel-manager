@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://byrfky8va0n1u" path="res://entitites/celula/celula.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bnb5fvjeveeht" path="res://item_template.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://b8bduivbl5mty" path="res://components/right_sigin_button_normal.aseprite" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dap73vbbrt3ay" path="res://components/right_sigin_button_press.aseprite" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://c3kmg7d51vwk2" path="res://components/right_sigin_button_hover.aseprite" id="5_272bh"]
 
 [node name="main" type="Node2D" unique_id=2144966769]
 
@@ -20,20 +23,69 @@ mouse_filter = 2
 
 [node name="ItemsMargin" type="MarginContainer" parent="HUDLayer/HUD" unique_id=1784022638]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 24.0
+grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="ItemsContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=453442565]
+[node name="ItemsContainer2" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=1140788217]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Item" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer2" unique_id=1793976347 instance=ExtResource("2_0xm2m")]
 layout_mode = 2
 
-[node name="Item" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer" unique_id=1793976347 instance=ExtResource("2_0xm2m")]
+[node name="Item2" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer2" unique_id=829919006 instance=ExtResource("2_0xm2m")]
 layout_mode = 2
 
-[node name="Item2" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer" unique_id=283323171 instance=ExtResource("2_0xm2m")]
+[node name="OrganelaManager" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=453442565]
 layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="BackGround" type="Panel" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager" unique_id=210206100]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround" unique_id=442043554]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/MarginContainer" unique_id=110891218]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/MarginContainer/VBoxContainer" unique_id=1348439077]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/MarginContainer/VBoxContainer/HBoxContainer" unique_id=338194400]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/MarginContainer/VBoxContainer/HBoxContainer" unique_id=817703057]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 8
+text = "Nome"
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1748414576]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("3_lquwl")
+texture_pressed = ExtResource("4_7mycd")
+texture_hover = ExtResource("5_272bh")
