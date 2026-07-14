@@ -1,22 +1,18 @@
 [gd_scene format=3 uid="uid://byrfky8va0n1u"]
 
+[ext_resource type="Script" uid="uid://dnuwiawg3yhve" path="res://entitites/celula/celula.gd" id="1_7oi4e"]
 [ext_resource type="Texture2D" uid="uid://cnu0dfammtyem" path="res://entitites/citoplasma/citoplasma.aseprite" id="1_tyvlf"]
 [ext_resource type="PackedScene" uid="uid://oto5oi1q3cka" path="res://entitites/core/core.tscn" id="2_d2c0f"]
-[ext_resource type="Texture2D" uid="uid://b7bry2c45fqfg" path="res://entitites/mitocondria/mitocondria.aseprite" id="3_d2c0f"]
 
 [node name="Celula" type="Node2D" unique_id=101789754]
+script = ExtResource("1_7oi4e")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=906001390]
 texture = ExtResource("1_tyvlf")
 
-[node name="core" parent="." unique_id=827464486 instance=ExtResource("2_d2c0f")]
-position = Vector2(1, -26)
-
-[node name="mitocondria" type="Node2D" parent="." unique_id=1994339790]
-position = Vector2(-37, -3)
-metadata/_edit_group_ = true
-
-[node name="Texture" type="Sprite2D" parent="mitocondria" unique_id=1156182284]
-texture = ExtResource("3_d2c0f")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=336611162]
+
+[node name="Organelles" type="Node2D" parent="." unique_id=1858272143]
+
+[node name="core" parent="Organelles" unique_id=827464486 instance=ExtResource("2_d2c0f")]
+position = Vector2(0, -27)

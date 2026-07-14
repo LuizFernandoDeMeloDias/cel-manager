@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.spriteframes"
-type="SpriteFrames"
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
 uid="uid://dqin3b3yws5sd"
 path="res://.godot/imported/core.aseprite-864e67d330e302844eeee5dcdbcb7104.res"
 
@@ -14,8 +14,8 @@ dest_files=["res://.godot/imported/core.aseprite-864e67d330e302844eeee5dcdbcb710
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=false
+layer/split_layers=false
+first_frame_only=false
 sheet/sheet_type="packed"
 sheet/sheet_columns=12
-sheet/frame_padding=0
 sheet/scale=1
-animation/round_fps=true

@@ -1,20 +1,13 @@
-extends Node2D
+extends Organells
 
 @onready var atp_progress_timer: Timer = $ProgressTimer
 @onready var  atp_progress_bar: ProgressBar = $ATPDecreaseProgress
 @onready var animation: AnimationPlayer = $Animation
-@onready var texture: AnimatedSprite2D = $Texture
 @onready var ATP_amount: Panel = $ATPAmountBackground
 
 var core_enegergy: int = 60
 
 var shaking_speed: float = 1.0 
-
-
-
-func _ready() -> void:
-	animation.play("core_shaking")
-	texture.play("core_idle")
 
 func update_celula():
 	animation.speed_scale = remap(core_enegergy, 60, 0, 0.1, 1)

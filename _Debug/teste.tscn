@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ji4vkdw47egu"]
+
+[ext_resource type="Script" uid="uid://dxh710sdpko8w" path="res://_Debug/teste.gd" id="1_e2fhc"]
+[ext_resource type="Shader" uid="uid://bli0wq26x5wro" path="res://entitites/core/outline.gdshader" id="2_busfm"]
+[ext_resource type="Texture2D" uid="uid://dcv4h1kwhdopw" path="res://entitites/o2/o2.aseprite" id="3_yv7mf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1vkdc"]
+shader = ExtResource("2_busfm")
+shader_parameter/outline_width = 1.0
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+shader_parameter/texture_region = Vector4(0, 0, 0, 0)
+
+[node name="Teste" type="Node2D" unique_id=215571334 node_paths=PackedStringArray("texture")]
+script = ExtResource("1_e2fhc")
+texture = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1251404468]
+material = SubResource("ShaderMaterial_1vkdc")
+texture = ExtResource("3_yv7mf")
