@@ -2,19 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://byrfky8va0n1u" path="res://entitites/celula/celula.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bnb5fvjeveeht" path="res://item_template.tscn" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="3_272bh"]
-[ext_resource type="Texture2D" uid="uid://b8bduivbl5mty" path="res://components/right_sigin_button_normal.aseprite" id="3_lquwl"]
-[ext_resource type="FontFile" uid="uid://bueoxfwuwpoja" path="res://entitites/mitocondria/aseprite_font.ttf" id="4_5vw27"]
-[ext_resource type="Texture2D" uid="uid://dap73vbbrt3ay" path="res://components/right_sigin_button_press.aseprite" id="4_7mycd"]
-[ext_resource type="Texture2D" uid="uid://c3kmg7d51vwk2" path="res://components/right_sigin_button_hover.aseprite" id="5_272bh"]
+[ext_resource type="Script" uid="uid://dtrvuxmv2oc8n" path="res://systems/hud/hud.gd" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cs6vh7413c7jq" path="res://components/action_item/action_item.tscn" id="3_h2yge"]
 
-[node name="main" type="Node2D" unique_id=2144966769]
+[node name="Main" type="Node2D" unique_id=2144966769]
 
-[node name="Celula" parent="." unique_id=101789754 instance=ExtResource("1_ig7tw")]
+[node name="Cell" parent="." unique_id=101789754 instance=ExtResource("1_ig7tw")]
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=2081948761]
 
-[node name="HUD" type="Control" parent="HUDLayer" unique_id=2145663729]
+[node name="HUD" type="Control" parent="HUDLayer" unique_id=2145663729 groups=["hud"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("2_1bvp3")
 
 [node name="ItemsMargin" type="MarginContainer" parent="HUDLayer/HUD" unique_id=1784022638]
 layout_mode = 1
@@ -36,70 +34,53 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="ItemsContainer2" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=1140788217]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Item" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer2" unique_id=1793976347 instance=ExtResource("2_0xm2m")]
-layout_mode = 2
-
-[node name="OrganelaManager" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=453442565 groups=["organell_manager"]]
+[node name="ItemsContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=1140788217]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="BackGround" type="Panel" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager" unique_id=210206100]
+[node name="Item" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer" unique_id=1793976347 instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="OrganelleManager" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=453442565 groups=["organell_manager"]]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BackGround" type="Panel" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager" unique_id=210206100]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround" unique_id=110891218]
+[node name="MarginContainer" type="MarginContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround" unique_id=498487897]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/VBoxContainer" unique_id=1348439077]
+[node name="ActionContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer" unique_id=110891218]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/VBoxContainer/HBoxContainer" unique_id=817703057]
+[node name="TitleLabel" type="Label" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=817703057]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 8
 text = "Nucleo"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/VBoxContainer" unique_id=596081788]
+[node name="ActionItem" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=1323383113 instance=ExtResource("3_h2yge")]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
-[node name="PanelContainer" type="PanelContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/VBoxContainer/MarginContainer" unique_id=815699219]
-custom_minimum_size = Vector2(0, 16)
+[node name="ActionItem2" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=852716340 instance=ExtResource("3_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/VBoxContainer/MarginContainer/PanelContainer" unique_id=801766606]
+[node name="ActionItem3" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=1732704434 instance=ExtResource("3_h2yge")]
 layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
 
-[node name="Label" type="Label" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer" unique_id=1804313825]
+[node name="ActionItem4" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=1295874573 instance=ExtResource("3_h2yge")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_5vw27")
-theme_override_font_sizes/font_size = 8
-text = "Recarregar"
 
-[node name="TextureRect" type="TextureRect" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer" unique_id=1899963763]
-layout_mode = 2
-texture = ExtResource("3_272bh")
-stretch_mode = 3
-
-[node name="TextureButton" type="TextureButton" parent="HUDLayer/HUD/ItemsMargin/OrganelaManager/BackGround/VBoxContainer/MarginContainer/PanelContainer/HBoxContainer" unique_id=731337220]
-layout_mode = 2
-texture_normal = ExtResource("3_lquwl")
-texture_pressed = ExtResource("4_7mycd")
-texture_hover = ExtResource("5_272bh")
+[editable path="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer/ActionItem"]

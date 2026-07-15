@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cs6vh7413c7jq"]
+
+[ext_resource type="Script" uid="uid://q2w4f5wi64f1" path="res://components/action_item/action_item.gd" id="1_chhsw"]
+[ext_resource type="FontFile" uid="uid://bueoxfwuwpoja" path="res://entitites/mitocondria/aseprite_font.ttf" id="2_sjrwh"]
+[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="3_aktnv"]
+[ext_resource type="Texture2D" uid="uid://b8bduivbl5mty" path="res://components/right_sigin_button_normal.aseprite" id="4_nrgpd"]
+[ext_resource type="Texture2D" uid="uid://dap73vbbrt3ay" path="res://components/right_sigin_button_press.aseprite" id="5_fxdak"]
+[ext_resource type="Texture2D" uid="uid://c3kmg7d51vwk2" path="res://components/right_sigin_button_hover.aseprite" id="6_lj4pt"]
+[ext_resource type="Texture2D" uid="uid://fl0xsdk4nnsx" path="res://components/button/button_disabled.aseprite" id="7_sjrwh"]
+
+[node name="ActionItem" type="MarginContainer" unique_id=852716340]
+custom_minimum_size = Vector2(0, 16)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_right = 66.0
+offset_bottom = 25.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_chhsw")
+
+[node name="ActionPanel" type="PanelContainer" parent="." unique_id=173840141]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CostHBox" type="HBoxContainer" parent="ActionPanel" unique_id=1147003706]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionNameLabel" type="Label" parent="ActionPanel/CostHBox" unique_id=615671111]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sjrwh")
+theme_override_font_sizes/font_size = 8
+text = "Recarregar       -1"
+
+[node name="CurrencyIcon" type="TextureRect" parent="ActionPanel/CostHBox" unique_id=1162697440]
+layout_mode = 2
+texture = ExtResource("3_aktnv")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionPanel/CostHBox" unique_id=1730428993]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="UpgradeButton" type="TextureButton" parent="ActionPanel/CostHBox/MarginContainer" unique_id=9473099]
+layout_mode = 2
+texture_normal = ExtResource("4_nrgpd")
+texture_pressed = ExtResource("5_fxdak")
+texture_hover = ExtResource("6_lj4pt")
+texture_disabled = ExtResource("7_sjrwh")
+stretch_mode = 3

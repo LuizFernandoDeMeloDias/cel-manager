@@ -2,7 +2,7 @@ extends Node2D
 
 var organelles: Array = []
 var current_index: int = 1
-
+@onready var hud = get_tree().get_first_node_in_group("hud")
 
 func _ready() -> void:
 	organelles = $Organelles.get_children()
@@ -12,6 +12,7 @@ func update_navigation() -> void:
 		var organelle = organelles[i]
 		if i == current_index:
 			organelle.select()
+			hud.update_hud(organelle)
 		else:
 			organelle.deselect()
 

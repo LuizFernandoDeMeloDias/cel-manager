@@ -2,6 +2,31 @@
 
 [ext_resource type="Script" uid="uid://b6xp5ffuk4ubh" path="res://entitites/core/core.gd" id="1_1eoc5"]
 [ext_resource type="Texture2D" uid="uid://dqin3b3yws5sd" path="res://entitites/core/core.aseprite" id="2_ccy1h"]
+[ext_resource type="Script" uid="uid://bkorkjon8ilrr" path="res://systems/organelle_action/organelle_action.gd" id="2_yegyi"]
+[ext_resource type="Script" uid="uid://cled3hxynf7x1" path="res://systems/items/slot_data.gd" id="3_b8cpb"]
+[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="4_033q6"]
+[ext_resource type="Texture2D" uid="uid://nu5laguve3a" path="res://entitites/piruvato.aseprite" id="4_b8cpb"]
+[ext_resource type="Texture2D" uid="uid://dcv4h1kwhdopw" path="res://entitites/o2/o2.aseprite" id="5_033q6"]
+
+[sub_resource type="Resource" id="Resource_033q6"]
+script = ExtResource("2_yegyi")
+action_name = "Recarregar    -1"
+icon = ExtResource("4_033q6")
+method_to_call = "_on_restore_atp"
+metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+
+[sub_resource type="Resource" id="Resource_5iyp2"]
+script = ExtResource("2_yegyi")
+action_name = "Teste 1 "
+icon = ExtResource("4_b8cpb")
+method_to_call = "teste"
+metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+
+[sub_resource type="Resource" id="Resource_g87yl"]
+script = ExtResource("2_yegyi")
+action_name = "Teste 2"
+icon = ExtResource("5_033q6")
+metadata/_custom_type_script = "uid://bkorkjon8ilrr"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yegyi"]
 
@@ -37,9 +62,10 @@ content_margin_right = 2.0
 content_margin_bottom = 2.0
 bg_color = Color(0, 0.5568628, 0.21960784, 1)
 
-[node name="core" type="Node2D" unique_id=827464486 node_paths=PackedStringArray("texture")]
+[node name="nucleos" type="Node2D" unique_id=827464486 node_paths=PackedStringArray("texture")]
 script = ExtResource("1_1eoc5")
 texture = NodePath("Texture")
+actions = Array[ExtResource("2_yegyi")]([SubResource("Resource_033q6"), SubResource("Resource_5iyp2"), SubResource("Resource_g87yl")])
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=1704339104]
 material = SubResource("ShaderMaterial_yegyi")
