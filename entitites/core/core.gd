@@ -5,6 +5,7 @@ extends Organells
 @onready var animation: AnimationPlayer = $Animation
 @onready var ATP_amount: Panel = $ATPAmountBackground
 
+@onready var inventory_ref:InventoryComponent = get_tree().get_first_node_in_group("inventory_component")
 
 
 var core_enegergy: int = 60
@@ -25,9 +26,10 @@ func _on_atp_decrease_timer_timeout() -> void:
 	if atp_progress_bar.value == 0:
 		print("você perdeu!")
 
-func _on_restore_atp() -> void:
+func _on_restore_atp(cost:Array[SlotData]) -> void:
 	if core_enegergy < 60:
 		core_enegergy = 60
 		update_celula()
+		inventory_ref.remove_item(cost)
 	else:
 		print("Quantidade Cheia")

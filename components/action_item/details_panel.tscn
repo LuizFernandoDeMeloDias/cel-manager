@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://df2pbgjpd4agk"]
+
+[ext_resource type="FontFile" uid="uid://bueoxfwuwpoja" path="res://entitites/mitocondria/aseprite_font.ttf" id="1_i6guo"]
+[ext_resource type="Script" uid="uid://b0f3ht3cdvtca" path="res://components/action_item/details_panel.gd" id="1_xxlo8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1byf"]
+bg_color = Color(0, 0.45882353, 0.67058825, 0.4862745)
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+anti_aliasing = false
+
+[node name="DetailsPanel" type="PanelContainer" unique_id=1739456006]
+offset_right = 134.0
+offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g1byf")
+script = ExtResource("1_xxlo8")
+
+[node name="ContentMargin" type="MarginContainer" parent="." unique_id=371518205]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ContentVBox" type="VBoxContainer" parent="ContentMargin" unique_id=2122617110]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="ContentMargin/ContentVBox" unique_id=1638004540]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_i6guo")
+theme_override_font_sizes/font_size = 8
+text = "Sem  Descrição"
+horizontal_alignment = 1
+autowrap_mode = 2

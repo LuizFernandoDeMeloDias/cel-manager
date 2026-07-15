@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cvfvvgkvjfv1s"]
 
 [ext_resource type="Script" uid="uid://fgvb8peyfha6" path="res://systems/items/item_data.gd" id="1_d8jlk"]
+[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="2_tnefo"]
 
 [resource]
 script = ExtResource("1_d8jlk")
+texture = ExtResource("2_tnefo")
 metadata/_custom_type_script = "uid://fgvb8peyfha6"

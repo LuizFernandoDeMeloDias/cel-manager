@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bjgs47k3xqk6g"]
+
+[ext_resource type="Script" uid="uid://c3nvlm3ldrmr0" path="res://components/cost_h_box.gd" id="1_nk1pq"]
+[ext_resource type="FontFile" uid="uid://bueoxfwuwpoja" path="res://entitites/mitocondria/aseprite_font.ttf" id="1_sh157"]
+[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="2_nk1pq"]
+
+[node name="CostHBox" type="HBoxContainer" unique_id=1596614729]
+script = ExtResource("1_nk1pq")
+
+[node name="AmountLabel" type="Label" parent="." unique_id=1102561342]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sh157")
+theme_override_font_sizes/font_size = 8
+text = "-1"
+
+[node name="CurrencyIcon" type="TextureRect" parent="." unique_id=165518084]
+layout_mode = 2
+texture = ExtResource("2_nk1pq")
+stretch_mode = 3

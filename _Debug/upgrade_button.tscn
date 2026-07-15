@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://djx2u2nvbdbjl"]
+
+[ext_resource type="Texture2D" uid="uid://dumvoisp02d0m" path="res://components/confirm_button/right_sigin_button_normal.aseprite" id="1_ulw57"]
+[ext_resource type="Texture2D" uid="uid://cbwhy46bg1ecr" path="res://components/confirm_button/right_sigin_button_press.aseprite" id="2_3dyl4"]
+[ext_resource type="Texture2D" uid="uid://eng71t3y8y3c" path="res://components/confirm_button/right_sigin_button_hover.aseprite" id="3_ulw57"]
+[ext_resource type="Texture2D" uid="uid://nb6rcrcl4mng" path="res://components/confirm_button/right_sigin_button_disabled.aseprite" id="4_awam4"]
+
+[node name="UpgradeButton" type="TextureButton" unique_id=1919486684]
+texture_normal = ExtResource("1_ulw57")
+texture_pressed = ExtResource("2_3dyl4")
+texture_hover = ExtResource("3_ulw57")
+texture_disabled = ExtResource("4_awam4")
+stretch_mode = 3

@@ -3,25 +3,18 @@
 [ext_resource type="Script" uid="uid://q2w4f5wi64f1" path="res://components/action_item/action_item.gd" id="1_chhsw"]
 [ext_resource type="FontFile" uid="uid://bueoxfwuwpoja" path="res://entitites/mitocondria/aseprite_font.ttf" id="2_sjrwh"]
 [ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="3_aktnv"]
-[ext_resource type="Texture2D" uid="uid://b8bduivbl5mty" path="res://components/right_sigin_button_normal.aseprite" id="4_nrgpd"]
-[ext_resource type="Texture2D" uid="uid://dap73vbbrt3ay" path="res://components/right_sigin_button_press.aseprite" id="5_fxdak"]
-[ext_resource type="Texture2D" uid="uid://c3kmg7d51vwk2" path="res://components/right_sigin_button_hover.aseprite" id="6_lj4pt"]
-[ext_resource type="Texture2D" uid="uid://fl0xsdk4nnsx" path="res://components/button/button_disabled.aseprite" id="7_sjrwh"]
+[ext_resource type="Texture2D" uid="uid://dumvoisp02d0m" path="res://components/confirm_button/right_sigin_button_normal.aseprite" id="4_sjrwh"]
+[ext_resource type="Texture2D" uid="uid://cbwhy46bg1ecr" path="res://components/confirm_button/right_sigin_button_press.aseprite" id="5_aktnv"]
+[ext_resource type="Texture2D" uid="uid://eng71t3y8y3c" path="res://components/confirm_button/right_sigin_button_hover.aseprite" id="6_sjrwh"]
+[ext_resource type="Texture2D" uid="uid://nb6rcrcl4mng" path="res://components/confirm_button/right_sigin_button_disabled.aseprite" id="7_nrgpd"]
+[ext_resource type="PackedScene" uid="uid://df2pbgjpd4agk" path="res://components/action_item/details_panel.tscn" id="8_aktnv"]
 
 [node name="ActionItem" type="MarginContainer" unique_id=852716340]
-custom_minimum_size = Vector2(0, 16)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -66.0
-offset_right = 66.0
-offset_bottom = 25.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.09259259
 grow_horizontal = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 4
+grow_vertical = 2
 script = ExtResource("1_chhsw")
 
 [node name="ActionPanel" type="PanelContainer" parent="." unique_id=173840141]
@@ -33,25 +26,44 @@ size_flags_horizontal = 3
 layout_mode = 2
 alignment = 1
 
-[node name="ActionNameLabel" type="Label" parent="ActionPanel/CostHBox" unique_id=615671111]
+[node name="TitleMargin" type="MarginContainer" parent="ActionPanel/CostHBox" unique_id=751981525]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+
+[node name="ActionNameLabel" type="Label" parent="ActionPanel/CostHBox/TitleMargin" unique_id=615671111]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_sjrwh")
 theme_override_font_sizes/font_size = 8
-text = "Recarregar       -1"
+text = "Recarregar"
+horizontal_alignment = 1
 
 [node name="CurrencyIcon" type="TextureRect" parent="ActionPanel/CostHBox" unique_id=1162697440]
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
 texture = ExtResource("3_aktnv")
 stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ActionPanel/CostHBox" unique_id=1730428993]
+[node name="ButtonMargin" type="MarginContainer" parent="ActionPanel/CostHBox" unique_id=1730428993]
 layout_mode = 2
-theme_override_constants/margin_left = 4
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
 
-[node name="UpgradeButton" type="TextureButton" parent="ActionPanel/CostHBox/MarginContainer" unique_id=9473099]
+[node name="UpgradeButton" type="TextureButton" parent="ActionPanel/CostHBox/ButtonMargin" unique_id=9473099]
 layout_mode = 2
-texture_normal = ExtResource("4_nrgpd")
-texture_pressed = ExtResource("5_fxdak")
-texture_hover = ExtResource("6_lj4pt")
-texture_disabled = ExtResource("7_sjrwh")
+texture_normal = ExtResource("4_sjrwh")
+texture_pressed = ExtResource("5_aktnv")
+texture_hover = ExtResource("6_sjrwh")
+texture_disabled = ExtResource("7_nrgpd")
 stretch_mode = 3
+
+[node name="DetailsPanel" parent="ActionPanel/CostHBox/ButtonMargin/UpgradeButton" unique_id=1739456006 instance=ExtResource("8_aktnv")]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 166.0
+
+[connection signal="mouse_entered" from="ActionPanel/CostHBox/ButtonMargin/UpgradeButton" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="ActionPanel/CostHBox/ButtonMargin/UpgradeButton" to="." method="_on_upgrade_button_mouse_exited"]

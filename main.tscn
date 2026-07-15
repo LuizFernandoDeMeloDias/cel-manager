@@ -4,6 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://bnb5fvjeveeht" path="res://item_template.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://dtrvuxmv2oc8n" path="res://systems/hud/hud.gd" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cs6vh7413c7jq" path="res://components/action_item/action_item.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://dkvwnu2otj5iw" path="res://systems/items/inventory_component.gd" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://cled3hxynf7x1" path="res://systems/items/slot_data.gd" id="4_272bh"]
+[ext_resource type="Resource" uid="uid://cvfvvgkvjfv1s" path="res://systems/items/ATP.tres" id="5_5vw27"]
+[ext_resource type="FontFile" uid="uid://bueoxfwuwpoja" path="res://entitites/mitocondria/aseprite_font.ttf" id="7_dg77c"]
+[ext_resource type="Texture2D" uid="uid://bddmwhplsx4uu" path="res://components/deny_button/deny_button_normal.aseprite" id="7_kek77"]
+[ext_resource type="Texture2D" uid="uid://ct3w5pk58w2er" path="res://components/deny_button/deny_button_pressed.aseprite" id="8_4c57u"]
+[ext_resource type="Texture2D" uid="uid://c53bsnit7il4n" path="res://components/deny_button/deny_button_disabled.aseprite" id="9_4c57u"]
+[ext_resource type="Texture2D" uid="uid://dp5gtmnwoa3c1" path="res://components/deny_button/deny_button_hovered.aseprite" id="9_efxa6"]
+
+[sub_resource type="Resource" id="Resource_kek77"]
+script = ExtResource("4_272bh")
+item = ExtResource("5_5vw27")
+amount = 20
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
 
 [node name="Main" type="Node2D" unique_id=2144966769]
 
@@ -34,11 +48,22 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="ItemsContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=1140788217]
-layout_mode = 2
-size_flags_horizontal = 8
+[node name="inventory_component" type="Node" parent="HUDLayer/HUD/ItemsMargin" unique_id=507241732 groups=["inventory_component"]]
+script = ExtResource("3_lquwl")
+teste_item = Array[ExtResource("4_272bh")]([SubResource("Resource_kek77")])
 
-[node name="Item" parent="HUDLayer/HUD/ItemsMargin/ItemsContainer" unique_id=1793976347 instance=ExtResource("2_0xm2m")]
+[node name="ItemsContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin/inventory_component" unique_id=1140788217]
+offset_left = 427.0
+offset_top = 12.0
+offset_right = 468.0
+offset_bottom = 258.0
+size_flags_horizontal = 8
+theme_override_constants/separation = 10
+
+[node name="Item" parent="HUDLayer/HUD/ItemsMargin/inventory_component/ItemsContainer" unique_id=1793976347 instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Item2" parent="HUDLayer/HUD/ItemsMargin/inventory_component/ItemsContainer" unique_id=1642662178 instance=ExtResource("2_0xm2m")]
 layout_mode = 2
 
 [node name="OrganelleManager" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin" unique_id=453442565 groups=["organell_manager"]]
@@ -57,30 +82,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_bottom = 12
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="ActionContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer" unique_id=110891218]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer" unique_id=1843039018]
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=817703057]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/VBoxContainer" unique_id=1153496297]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/VBoxContainer/HBoxContainer" unique_id=817703057]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7_dg77c")
 theme_override_font_sizes/font_size = 8
 text = "Nucleo"
 horizontal_alignment = 1
 
-[node name="ActionItem" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=1323383113 instance=ExtResource("3_h2yge")]
+[node name="TextureButton" type="TextureButton" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1398278044]
+layout_mode = 2
+texture_normal = ExtResource("7_kek77")
+texture_pressed = ExtResource("8_4c57u")
+texture_hover = ExtResource("9_efxa6")
+texture_disabled = ExtResource("9_4c57u")
+
+[node name="ActionContainer" type="VBoxContainer" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/VBoxContainer" unique_id=110891218]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ActionItem2" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=852716340 instance=ExtResource("3_h2yge")]
+[node name="ActionItem" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/VBoxContainer/ActionContainer" unique_id=1323383113 instance=ExtResource("3_h2yge")]
 layout_mode = 2
-
-[node name="ActionItem3" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=1732704434 instance=ExtResource("3_h2yge")]
-layout_mode = 2
-
-[node name="ActionItem4" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer" unique_id=1295874573 instance=ExtResource("3_h2yge")]
-layout_mode = 2
-
-[editable path="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/ActionContainer/ActionItem"]

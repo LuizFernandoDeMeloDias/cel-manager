@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://bnb5fvjeveeht"]
 
 [ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="1_64hlx"]
+[ext_resource type="Script" uid="uid://cb117fiegu2e6" path="res://systems/items/item_template.gd" id="1_fwdul"]
 [ext_resource type="FontFile" uid="uid://bueoxfwuwpoja" path="res://entitites/mitocondria/aseprite_font.ttf" id="2_fwdul"]
 
 [node name="Item" type="Panel" unique_id=1793976347]
-custom_minimum_size = Vector2(41.8, 17.13)
+custom_minimum_size = Vector2(0, 8)
+offset_right = 32.0
+offset_bottom = 9.0
+script = ExtResource("1_fwdul")
 
 [node name="ItemRow" type="HBoxContainer" parent="." unique_id=357695497]
 layout_mode = 1
@@ -15,16 +19,28 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ItemTexture" type="TextureRect" parent="ItemRow" unique_id=175751443]
-layout_mode = 2
-texture = ExtResource("1_64hlx")
-stretch_mode = 3
-
 [node name="Amount" type="Label" parent="ItemRow" unique_id=1069557951]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_constants/line_spacing = 3
 theme_override_constants/paragraph_spacing = 0
 theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("2_fwdul")
 theme_override_font_sizes/font_size = 8
-text = "10"
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemTexture" type="TextureRect" parent="ItemRow/Amount" unique_id=175751443]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 10.0
+grow_horizontal = 2
+texture = ExtResource("1_64hlx")
+stretch_mode = 3
