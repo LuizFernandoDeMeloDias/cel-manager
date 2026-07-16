@@ -3,23 +3,7 @@
 [ext_resource type="Script" uid="uid://dnuwiawg3yhve" path="res://entitites/celula/celula.gd" id="1_7oi4e"]
 [ext_resource type="Texture2D" uid="uid://cnu0dfammtyem" path="res://entitites/citoplasma/citoplasma.aseprite" id="1_tyvlf"]
 [ext_resource type="PackedScene" uid="uid://oto5oi1q3cka" path="res://entitites/core/core.tscn" id="2_d2c0f"]
-[ext_resource type="PackedScene" uid="uid://ji4vkdw47egu" path="res://_Debug/teste.tscn" id="4_pyynp"]
-[ext_resource type="Script" uid="uid://bkorkjon8ilrr" path="res://systems/organelle_action/organelle_action.gd" id="5_8e7ov"]
-[ext_resource type="Script" uid="uid://cled3hxynf7x1" path="res://systems/items/slot_data.gd" id="6_vqweq"]
-[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="7_bxy58"]
-[ext_resource type="Texture2D" uid="uid://b7bry2c45fqfg" path="res://entitites/mitocondria/mitocondria.aseprite" id="8_t3leu"]
-
-[sub_resource type="Resource" id="Resource_8d1x2"]
-script = ExtResource("5_8e7ov")
-action_name = "Gerar ATP    +1"
-icon = ExtResource("7_bxy58")
-metadata/_custom_type_script = "uid://bkorkjon8ilrr"
-
-[sub_resource type="Resource" id="Resource_pyynp"]
-script = ExtResource("5_8e7ov")
-action_name = "Dividir"
-icon = ExtResource("8_t3leu")
-metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+[ext_resource type="PackedScene" uid="uid://6g6m0v3mf0v5" path="res://entitites/celula/mitochondria.tscn" id="4_7oi4e"]
 
 [node name="Celula" type="Node2D" unique_id=101789754]
 script = ExtResource("1_7oi4e")
@@ -31,14 +15,8 @@ texture = ExtResource("1_tyvlf")
 
 [node name="Organelles" type="Node2D" parent="." unique_id=1858272143]
 
-[node name="core" parent="Organelles" unique_id=827464486 instance=ExtResource("2_d2c0f")]
+[node name="nucleos" parent="Organelles" unique_id=827464486 instance=ExtResource("2_d2c0f")]
 position = Vector2(1, -28)
 
-[node name="Teste" parent="Organelles" unique_id=215571334 instance=ExtResource("4_pyynp")]
-position = Vector2(-30, 4)
-actions = Array[ExtResource("5_8e7ov")]([SubResource("Resource_8d1x2"), SubResource("Resource_pyynp")])
-
-[node name="Sprite2D" parent="Organelles/Teste" index="0" unique_id=1251404468]
-texture = ExtResource("8_t3leu")
-
-[editable path="Organelles/Teste"]
+[node name="mitochondria" parent="Organelles" unique_id=1912856360 instance=ExtResource("4_7oi4e")]
+position = Vector2(-36, 6)

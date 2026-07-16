@@ -4,6 +4,7 @@ class_name Organells
 
 @export var texture: Sprite2D
 @export var actions: Array[OrganelleAction]
+signal has_clicked
 
 func _ready() -> void:
 	var outline_shader_resource: Shader = load("res://entitites/core/outline.gdshader")

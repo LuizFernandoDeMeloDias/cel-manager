@@ -1,11 +1,14 @@
 extends Node2D
 
 var organelles: Array = []
-var current_index: int = 1
+var current_index: int = 0
 @onready var hud = get_tree().get_first_node_in_group("hud")
 
 func _ready() -> void:
 	organelles = $Organelles.get_children()
+	await get_tree().process_frame
+	update_navigation()
+
 
 func update_navigation() -> void:
 	for i in range(organelles.size()):
@@ -19,7 +22,6 @@ func update_navigation() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if organelles.is_empty():
 		return
-	
 	if event.is_action_pressed("ui_right"):
 		current_index += 1
 		if current_index >= organelles.size():

@@ -61,6 +61,7 @@ texture_disabled = ExtResource("7_nrgpd")
 stretch_mode = 3
 
 [node name="DetailsPanel" parent="ActionPanel/CostHBox/ButtonMargin/UpgradeButton" unique_id=1739456006 instance=ExtResource("8_aktnv")]
+visible = false
 layout_mode = 0
 offset_left = 32.0
 offset_right = 166.0

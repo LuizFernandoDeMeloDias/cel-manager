@@ -11,11 +11,12 @@ func setup_action(action_data: OrganelleAction, target_function: Callable) -> vo
 	currency_icon.texture = action_data.icon
 	
 	details_panel.setup(action_data)
-	
 	var connections: Array = upgrade_button.pressed.get_connections()
+	
 	for connection in connections:
 		upgrade_button.pressed.disconnect(connection["callable"])
 	upgrade_button.pressed.connect(target_function)
+	
 
 
 func _on_upgrade_button_mouse_entered() -> void:

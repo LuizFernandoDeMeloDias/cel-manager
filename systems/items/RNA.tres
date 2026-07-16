@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c4ytvv57ko3ed"]
+
+[ext_resource type="Script" uid="uid://fgvb8peyfha6" path="res://systems/items/item_data.gd" id="1_nihgf"]
+[ext_resource type="Texture2D" uid="uid://cl5gcjf4re828" path="res://entitites/rna/rna.aseprite" id="2_rs51d"]
+
+[resource]
+script = ExtResource("1_nihgf")
+name = "RNA"
+texture = ExtResource("2_rs51d")
+metadata/_custom_type_script = "uid://fgvb8peyfha6"
