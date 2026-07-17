@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://dnuwiawg3yhve" path="res://entitites/celula/celula.gd" id="1_7oi4e"]
 [ext_resource type="Texture2D" uid="uid://cnu0dfammtyem" path="res://entitites/citoplasma/citoplasma.aseprite" id="1_tyvlf"]
 [ext_resource type="PackedScene" uid="uid://oto5oi1q3cka" path="res://entitites/core/core.tscn" id="2_d2c0f"]
-[ext_resource type="PackedScene" uid="uid://6g6m0v3mf0v5" path="res://entitites/celula/mitochondria.tscn" id="4_7oi4e"]
+[ext_resource type="PackedScene" uid="uid://6g6m0v3mf0v5" path="res://entitites/mitocondria/mitochondria.tscn" id="4_7oi4e"]
 
 [node name="Celula" type="Node2D" unique_id=101789754]
 script = ExtResource("1_7oi4e")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=906001390]
+position = Vector2(-6, 0)
 texture = ExtResource("1_tyvlf")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=336611162]
@@ -16,7 +17,7 @@ texture = ExtResource("1_tyvlf")
 [node name="Organelles" type="Node2D" parent="." unique_id=1858272143]
 
 [node name="nucleos" parent="Organelles" unique_id=827464486 instance=ExtResource("2_d2c0f")]
-position = Vector2(1, -28)
+position = Vector2(-6, -21)
 
 [node name="mitochondria" parent="Organelles" unique_id=1912856360 instance=ExtResource("4_7oi4e")]
-position = Vector2(-36, 6)
+position = Vector2(-41, -6)

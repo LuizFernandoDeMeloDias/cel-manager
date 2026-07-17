@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://6g6m0v3mf0v5"]
+
+[ext_resource type="Script" uid="uid://cpjo3jp4nxybi" path="res://entitites/mitocondria/mitochondria.gd" id="1_841oe"]
+[ext_resource type="Script" uid="uid://bkorkjon8ilrr" path="res://systems/organelle_action/organelle_action.gd" id="2_gv6go"]
+[ext_resource type="Script" uid="uid://cled3hxynf7x1" path="res://systems/items/slot_data.gd" id="3_qofkc"]
+[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="4_35ene"]
+[ext_resource type="Resource" uid="uid://b8lufkiebxtge" path="res://systems/items/glucose.tres" id="4_n5gv4"]
+[ext_resource type="Texture2D" uid="uid://depgnn6fpojl1" path="res://entitites/mitocondria/mitochondria.aseprite" id="5_gv6go"]
+[ext_resource type="Resource" uid="uid://baxfqjel3b4pj" path="res://systems/items/o2.tres" id="5_n5gv4"]
+[ext_resource type="Resource" uid="uid://cvfvvgkvjfv1s" path="res://systems/items/ATP.tres" id="6_vsk0b"]
+[ext_resource type="Texture2D" uid="uid://dx0njc8eyduje" path="res://entitites/mitocondria/mitochondria_icon.aseprite" id="8_vsk0b"]
+
+[sub_resource type="Resource" id="Resource_6nkf3"]
+script = ExtResource("3_qofkc")
+item = ExtResource("4_n5gv4")
+amount = 1
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_vsk0b"]
+script = ExtResource("3_qofkc")
+item = ExtResource("5_n5gv4")
+amount = 2
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_vry7h"]
+script = ExtResource("3_qofkc")
+item = ExtResource("6_vsk0b")
+amount = 2
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_vv1vn"]
+script = ExtResource("2_gv6go")
+action_name = "Gerar ATP"
+description = "Gera  2  ATP's  Usando  uma  molecula  de  Glicose e Oxigênio"
+icon = ExtResource("4_35ene")
+method_to_call = "_generate_atp"
+task_time = 2
+cost = Array[ExtResource("3_qofkc")]([SubResource("Resource_6nkf3"), SubResource("Resource_vsk0b")])
+result = Array[ExtResource("3_qofkc")]([SubResource("Resource_vry7h")])
+metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+
+[sub_resource type="Resource" id="Resource_bci00"]
+script = ExtResource("3_qofkc")
+item = ExtResource("6_vsk0b")
+amount = 20
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_n5gv4"]
+script = ExtResource("2_gv6go")
+action_name = "1 + Mitocondria"
+description = "Gasta Muito ATP para gerar outra mitocondria"
+icon = ExtResource("8_vsk0b")
+method_to_call = "_upgrade"
+cost = Array[ExtResource("3_qofkc")]([SubResource("Resource_bci00")])
+metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+
+[sub_resource type="Animation" id="Animation_gv6go"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MTexture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MTexture:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qofkc"]
+resource_name = "generating_atp"
+length = 1.0833417
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MTexture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833334, 0.6666667, 0.75, 0.8333334, 0.9166667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MTexture:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_n5gv4"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MTexture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_35ene"]
+_data = {
+&"RESET": SubResource("Animation_gv6go"),
+&"generating_atp": SubResource("Animation_qofkc"),
+&"idle": SubResource("Animation_n5gv4")
+}
+
+[node name="mitochondria" type="Node2D" unique_id=1912856360 node_paths=PackedStringArray("texture")]
+script = ExtResource("1_841oe")
+texture = NodePath("MTexture")
+actions = Array[ExtResource("2_gv6go")]([SubResource("Resource_vv1vn"), SubResource("Resource_n5gv4")])
+
+[node name="MTexture" type="Sprite2D" parent="." unique_id=1056246372]
+texture = ExtResource("5_gv6go")
+hframes = 4
+vframes = 4
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=716901604]
+libraries/ = SubResource("AnimationLibrary_35ene")
+
+[node name="TaskTimer" type="Timer" parent="." unique_id=663219929]

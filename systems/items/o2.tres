@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://baxfqjel3b4pj"]
+
+[ext_resource type="Script" uid="uid://fgvb8peyfha6" path="res://systems/items/item_data.gd" id="1_lye5b"]
+[ext_resource type="Texture2D" uid="uid://dcv4h1kwhdopw" path="res://entitites/o2/o2.aseprite" id="2_nya6u"]
+
+[resource]
+script = ExtResource("1_lye5b")
+name = "Oxigênio"
+texture = ExtResource("2_nya6u")
+metadata/_custom_type_script = "uid://fgvb8peyfha6"

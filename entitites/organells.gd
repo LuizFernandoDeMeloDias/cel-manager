@@ -4,19 +4,20 @@ class_name Organells
 
 @export var texture: Sprite2D
 @export var actions: Array[OrganelleAction]
-signal has_clicked
+var is_selected: bool
 
 func _ready() -> void:
 	var outline_shader_resource: Shader = load("res://entitites/core/outline.gdshader")
 	var outline_sahder_material = ShaderMaterial.new()
 	outline_sahder_material.shader = outline_shader_resource
 	texture.material = outline_sahder_material
-	texture.material.set_shader_parameter("outline_color", Color("00000000"))
+	texture.material.set_shader_parameter("outline_color", Color("ffffff00"))
 
 func select() -> void:
 	texture.material.set_shader_parameter("outline_width", 1.0)
 	texture.material.set_shader_parameter("outline_color", Color("ffffff"))
-	pass
+	is_selected = true
 
 func deselect() -> void:
 	texture.material.set_shader_parameter("outline_width", 0.0)
+	is_selected = false

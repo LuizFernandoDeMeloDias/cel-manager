@@ -8,6 +8,7 @@ const item_scene:PackedScene = preload("res://item_template.tscn")
 
 func _ready() -> void:
 	add_item(teste_item)
+	
 	update_inventory()
 
 func add_item(slots_data:Array[SlotData]) -> void:

@@ -54,6 +54,7 @@ theme_override_constants/margin_right = 8
 
 [node name="UpgradeButton" type="TextureButton" parent="ActionPanel/CostHBox/ButtonMargin" unique_id=9473099]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("4_sjrwh")
 texture_pressed = ExtResource("5_aktnv")
 texture_hover = ExtResource("6_sjrwh")

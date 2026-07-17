@@ -23,17 +23,15 @@ metadata/_custom_type_script = "uid://cled3hxynf7x1"
 [sub_resource type="Resource" id="Resource_033q6"]
 script = ExtResource("2_yegyi")
 action_name = "Energia"
+description = "Recarrega  Energia  do  Núcleo  Usando  ATP"
 icon = ExtResource("4_033q6")
 method_to_call = "_on_restore_atp"
 cost = Array[ExtResource("3_b8cpb")]([SubResource("Resource_b8cpb")])
 result = Array[ExtResource("3_b8cpb")]([SubResource("Resource_5iyp2")])
-description = "Recarrega  Energia  do  Núcleo  Usando  ATP"
 metadata/_custom_type_script = "uid://bkorkjon8ilrr"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_033q6"]
 radius = 18.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yegyi"]
 
 [sub_resource type="Animation" id="Animation_1eoc5"]
 length = 0.001
@@ -78,7 +76,6 @@ actions = Array[ExtResource("2_yegyi")]([SubResource("Resource_033q6")])
 shape = SubResource("CircleShape2D_033q6")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=1704339104]
-material = SubResource("ShaderMaterial_yegyi")
 texture = ExtResource("2_ccy1h")
 hframes = 2
 vframes = 2

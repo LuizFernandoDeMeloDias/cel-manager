@@ -2,13 +2,13 @@
 
 importer="aseprite_wizard.plugin.static-texture"
 type="PortableCompressedTexture2D"
-uid="uid://b7bry2c45fqfg"
-path="res://.godot/imported/mitocondria.aseprite-d098f4fcf2a54605055264d0566b04ad.res"
+uid="uid://t2582l10wj0v"
+path="res://.godot/imported/glucose.aseprite-222273f186935930b524d2909f8b72af.res"
 
 [deps]
 
-source_file="res://entitites/mitocondria/mitocondria.aseprite"
-dest_files=["res://.godot/imported/mitocondria.aseprite-d098f4fcf2a54605055264d0566b04ad.res"]
+source_file="res://entitites/glucose.aseprite"
+dest_files=["res://.godot/imported/glucose.aseprite-222273f186935930b524d2909f8b72af.res"]
 
 [params]
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b8lufkiebxtge"]
+
+[ext_resource type="Script" uid="uid://fgvb8peyfha6" path="res://systems/items/item_data.gd" id="1_j7a2g"]
+[ext_resource type="Texture2D" uid="uid://t2582l10wj0v" path="res://entitites/glucose.aseprite" id="2_22bxd"]
+
+[resource]
+script = ExtResource("1_j7a2g")
+name = "Glicose"
+texture = ExtResource("2_22bxd")
+metadata/_custom_type_script = "uid://fgvb8peyfha6"
