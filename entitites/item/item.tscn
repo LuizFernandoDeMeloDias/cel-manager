@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://fkjhy7x4fiss"]
+
+[ext_resource type="Script" uid="uid://b07y40pwajv48" path="res://entitites/item/item.gd" id="1_f7lgf"]
+[ext_resource type="Shader" uid="uid://bli0wq26x5wro" path="res://entitites/core/outline.gdshader" id="2_7wwgs"]
+[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="3_tbc0l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xcnm"]
+shader = ExtResource("2_7wwgs")
+shader_parameter/outline_width = 1.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/texture_region = Vector4(0, 0, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jthcr"]
+size = Vector2(22, 10)
+
+[node name="Item" type="Node2D" unique_id=1725913989]
+script = ExtResource("1_f7lgf")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=1873850236]
+material = SubResource("ShaderMaterial_8xcnm")
+texture = ExtResource("3_tbc0l")
+
+[node name="Area" type="Area2D" parent="." unique_id=752627895]
+
+[node name="Collision" type="CollisionShape2D" parent="Area" unique_id=544065525]
+shape = SubResource("RectangleShape2D_jthcr")
+
+[connection signal="mouse_entered" from="Area" to="." method="_on_area_mouse_entered"]
+[connection signal="mouse_exited" from="Area" to="." method="_on_area_mouse_exited"]

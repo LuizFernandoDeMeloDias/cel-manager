@@ -5,30 +5,23 @@
 [ext_resource type="Script" uid="uid://bkorkjon8ilrr" path="res://systems/organelle_action/organelle_action.gd" id="2_yegyi"]
 [ext_resource type="Script" uid="uid://cled3hxynf7x1" path="res://systems/items/slot_data.gd" id="3_b8cpb"]
 [ext_resource type="Resource" uid="uid://cvfvvgkvjfv1s" path="res://systems/items/ATP.tres" id="4_5iyp2"]
-[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="4_033q6"]
-[ext_resource type="Resource" uid="uid://c4ytvv57ko3ed" path="res://systems/items/RNA.tres" id="6_033q6"]
+[ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="5_033q6"]
+[ext_resource type="Script" uid="uid://bujl3wpkhb250" path="res://systems/organelle_action/standard_action.gd" id="5_b8cpb"]
 
-[sub_resource type="Resource" id="Resource_b8cpb"]
+[sub_resource type="Resource" id="Resource_033q6"]
 script = ExtResource("3_b8cpb")
 item = ExtResource("4_5iyp2")
-amount = 2
-metadata/_custom_type_script = "uid://cled3hxynf7x1"
-
-[sub_resource type="Resource" id="Resource_5iyp2"]
-script = ExtResource("3_b8cpb")
-item = ExtResource("6_033q6")
 amount = 1
 metadata/_custom_type_script = "uid://cled3hxynf7x1"
 
-[sub_resource type="Resource" id="Resource_033q6"]
-script = ExtResource("2_yegyi")
-action_name = "Energia"
-description = "Recarrega  Energia  do  Núcleo  Usando  ATP"
-icon = ExtResource("4_033q6")
+[sub_resource type="Resource" id="Resource_5iyp2"]
+script = ExtResource("5_b8cpb")
+cost = Array[ExtResource("3_b8cpb")]([SubResource("Resource_033q6")])
 method_to_call = "_on_restore_atp"
-cost = Array[ExtResource("3_b8cpb")]([SubResource("Resource_b8cpb")])
-result = Array[ExtResource("3_b8cpb")]([SubResource("Resource_5iyp2")])
-metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+action_name = "Restaurar Energia"
+description = "Restaurar  a  energia  do  núcleo  usando  ATP "
+icon = ExtResource("5_033q6")
+metadata/_custom_type_script = "uid://bujl3wpkhb250"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_033q6"]
 radius = 18.0
@@ -68,7 +61,7 @@ bg_color = Color(0, 0.5568628, 0.21960784, 1)
 [node name="nucleos" type="Node2D" unique_id=827464486 node_paths=PackedStringArray("texture")]
 script = ExtResource("1_1eoc5")
 texture = NodePath("Texture")
-actions = Array[ExtResource("2_yegyi")]([SubResource("Resource_033q6")])
+actions = Array[ExtResource("2_yegyi")]([SubResource("Resource_5iyp2")])
 
 [node name="MouseDetector" type="Area2D" parent="." unique_id=1955088847]
 

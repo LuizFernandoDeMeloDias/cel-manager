@@ -25,6 +25,5 @@ func update_hud(current_organelle: Node) -> void:
 			
 			var new_action = action_btn.instantiate()
 			action_container.add_child(new_action)
-			var target_function = Callable(current_organelle, actions_resource.method_to_call
-			).bind(actions_resource)
+			var target_function = Callable(current_organelle, actions_resource.method_to_call).bind(actions_resource)
 			new_action.setup_action(actions_resource, target_function)

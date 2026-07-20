@@ -4,23 +4,10 @@
 [ext_resource type="Script" uid="uid://bkorkjon8ilrr" path="res://systems/organelle_action/organelle_action.gd" id="2_gv6go"]
 [ext_resource type="Script" uid="uid://cled3hxynf7x1" path="res://systems/items/slot_data.gd" id="3_qofkc"]
 [ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="4_35ene"]
-[ext_resource type="Resource" uid="uid://b8lufkiebxtge" path="res://systems/items/glucose.tres" id="4_n5gv4"]
 [ext_resource type="Texture2D" uid="uid://depgnn6fpojl1" path="res://entitites/mitocondria/mitochondria.aseprite" id="5_gv6go"]
-[ext_resource type="Resource" uid="uid://baxfqjel3b4pj" path="res://systems/items/o2.tres" id="5_n5gv4"]
+[ext_resource type="Script" uid="uid://j0c3thfp4bnj" path="res://systems/organelle_action/upgrade_tier.gd" id="6_n5gv4"]
 [ext_resource type="Resource" uid="uid://cvfvvgkvjfv1s" path="res://systems/items/ATP.tres" id="6_vsk0b"]
 [ext_resource type="Texture2D" uid="uid://dx0njc8eyduje" path="res://entitites/mitocondria/mitochondria_icon.aseprite" id="8_vsk0b"]
-
-[sub_resource type="Resource" id="Resource_6nkf3"]
-script = ExtResource("3_qofkc")
-item = ExtResource("4_n5gv4")
-amount = 1
-metadata/_custom_type_script = "uid://cled3hxynf7x1"
-
-[sub_resource type="Resource" id="Resource_vsk0b"]
-script = ExtResource("3_qofkc")
-item = ExtResource("5_n5gv4")
-amount = 2
-metadata/_custom_type_script = "uid://cled3hxynf7x1"
 
 [sub_resource type="Resource" id="Resource_vry7h"]
 script = ExtResource("3_qofkc")
@@ -35,15 +22,8 @@ description = "Gera  2  ATP's  Usando  uma  molecula  de  Glicose e Oxigênio"
 icon = ExtResource("4_35ene")
 method_to_call = "_generate_atp"
 task_time = 2
-cost = Array[ExtResource("3_qofkc")]([SubResource("Resource_6nkf3"), SubResource("Resource_vsk0b")])
 result = Array[ExtResource("3_qofkc")]([SubResource("Resource_vry7h")])
 metadata/_custom_type_script = "uid://bkorkjon8ilrr"
-
-[sub_resource type="Resource" id="Resource_bci00"]
-script = ExtResource("3_qofkc")
-item = ExtResource("6_vsk0b")
-amount = 20
-metadata/_custom_type_script = "uid://cled3hxynf7x1"
 
 [sub_resource type="Resource" id="Resource_n5gv4"]
 script = ExtResource("2_gv6go")
@@ -51,8 +31,9 @@ action_name = "1 + Mitocondria"
 description = "Gasta Muito ATP para gerar outra mitocondria"
 icon = ExtResource("8_vsk0b")
 method_to_call = "_upgrade"
-cost = Array[ExtResource("3_qofkc")]([SubResource("Resource_bci00")])
 metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vry7h"]
 
 [sub_resource type="Animation" id="Animation_gv6go"]
 length = 0.001
@@ -139,6 +120,7 @@ texture = NodePath("MTexture")
 actions = Array[ExtResource("2_gv6go")]([SubResource("Resource_vv1vn"), SubResource("Resource_n5gv4")])
 
 [node name="MTexture" type="Sprite2D" parent="." unique_id=1056246372]
+material = SubResource("ShaderMaterial_vry7h")
 texture = ExtResource("5_gv6go")
 hframes = 4
 vframes = 4
@@ -147,3 +129,12 @@ vframes = 4
 libraries/ = SubResource("AnimationLibrary_35ene")
 
 [node name="TaskTimer" type="Timer" parent="." unique_id=663219929]
+wait_time = 5.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2003969395]
+offset_left = -18.0
+offset_top = -16.0
+offset_right = 22.0
+offset_bottom = -11.0
+theme_override_constants/separation = 1
+alignment = 1

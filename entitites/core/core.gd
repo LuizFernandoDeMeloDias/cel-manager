@@ -12,7 +12,6 @@ extends Organells
 var core_energy: int = 60
 var shaking_speed: float = 1.0
 
-
 func select() -> void:
 	super()
 	atp_progress_bar.show()
@@ -36,11 +35,10 @@ func _on_restore_atp(action_resource: OrganelleAction) -> void:
 	var costs = action_resource.cost
 	var results = action_resource.result
 	
-	
 	for cost in costs:
 		if !inventory_ref.has_item(cost.item.name, cost.amount):
 			return
-
+	
 	if core_energy < 60:
 		core_energy = 60
 		update_cell()
@@ -48,9 +46,6 @@ func _on_restore_atp(action_resource: OrganelleAction) -> void:
 		inventory_ref.add_item(results)
 	else:
 		print("Quantidade Cheia")
-
-
-
 
 func _on_mouse_detector_mouse_entered() -> void:
 	if !is_selected:
