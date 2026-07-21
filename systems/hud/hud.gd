@@ -11,7 +11,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_home"):
 		inventory_ref.add_item(itens_teste)
 
-
 func update_hud(current_organelle: Node) -> void:
 	for child in action_container.get_children():
 		child.queue_free()
@@ -23,7 +22,16 @@ func update_hud(current_organelle: Node) -> void:
 			if actions_resource == null:
 				continue
 			
+			var current_level: int = 0
+			
+			if current_organelle.has_method("get_upgrade_level"):
+				current_level = current_organelle.get_upgrade_level(actions_resource.action_name)
+			if actions_resource is UpgradeAction:
+				if current_level >= actions_resource.upgrade_tiers.size():
+					continue
+			
 			var new_action = action_btn.instantiate()
 			action_container.add_child(new_action)
+
 			var target_function = Callable(current_organelle, actions_resource.method_to_call).bind(actions_resource)
-			new_action.setup_action(actions_resource, target_function)
+			new_action.setup_action(actions_resource, target_function, current_level)

@@ -7,20 +7,28 @@
 [ext_resource type="Resource" uid="uid://cvfvvgkvjfv1s" path="res://systems/items/ATP.tres" id="4_5iyp2"]
 [ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="5_033q6"]
 [ext_resource type="Script" uid="uid://bujl3wpkhb250" path="res://systems/organelle_action/standard_action.gd" id="5_b8cpb"]
+[ext_resource type="Resource" uid="uid://c4ytvv57ko3ed" path="res://systems/items/RNA.tres" id="6_5iyp2"]
 
-[sub_resource type="Resource" id="Resource_033q6"]
+[sub_resource type="Resource" id="Resource_g87yl"]
 script = ExtResource("3_b8cpb")
 item = ExtResource("4_5iyp2")
 amount = 1
 metadata/_custom_type_script = "uid://cled3hxynf7x1"
 
+[sub_resource type="Resource" id="Resource_ges8w"]
+script = ExtResource("3_b8cpb")
+item = ExtResource("6_5iyp2")
+amount = 1
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
 [sub_resource type="Resource" id="Resource_5iyp2"]
 script = ExtResource("5_b8cpb")
-cost = Array[ExtResource("3_b8cpb")]([SubResource("Resource_033q6")])
-method_to_call = "_on_restore_atp"
+costs = Array[ExtResource("3_b8cpb")]([SubResource("Resource_g87yl")])
+results = Array[ExtResource("3_b8cpb")]([SubResource("Resource_ges8w")])
 action_name = "Restaurar Energia"
 description = "Restaurar  a  energia  do  núcleo  usando  ATP "
 icon = ExtResource("5_033q6")
+method_to_call = "_on_restore_atp"
 metadata/_custom_type_script = "uid://bujl3wpkhb250"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_033q6"]
@@ -78,6 +86,7 @@ libraries/ = SubResource("AnimationLibrary_aaspc")
 speed_scale = 0.1
 
 [node name="ATPDecreaseProgress" type="ProgressBar" parent="." unique_id=1060606299]
+z_index = 1
 offset_left = -14.0
 offset_top = -23.0
 offset_right = 14.0

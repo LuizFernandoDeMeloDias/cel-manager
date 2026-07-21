@@ -143,7 +143,7 @@ layout_mode = 2
 [node name="ActionItem" parent="HUDLayer/HUD/ItemsMargin/OrganelleManager/BackGround/MarginContainer/VBoxContainer/ActionContainer" unique_id=1323383113 instance=ExtResource("3_h2yge")]
 layout_mode = 2
 
-[node name="SpawnSystem" type="Node2D" parent="." unique_id=1174463225]
+[node name="SpawnSystem" type="Node2D" parent="." unique_id=1174463225 groups=["spawn_system"]]
 script = ExtResource("15_2cqfq")
 items_to_spawn = Array[ExtResource("4_272bh")]([SubResource("Resource_yaehf"), SubResource("Resource_074og")])
 

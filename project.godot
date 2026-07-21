@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 import/import_plugin/default_automatic_importer="Static Texture"
 animation/layers/only_include_visible_layers_by_default=true
 
+[autoload]
+
+EconomyData="*uid://dqa5igwsqy10f"
+
 [display]
 
 window/size/viewport_width=480

@@ -1,0 +1,21 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://c5watqceb1mmh"
+path="res://.godot/imported/reticulo_endoplasmatico_rugoso.aseprite-f06b11d8fbccb4e10548b8a9c64c89fc.res"
+
+[deps]
+
+source_file="res://entitites/Nova pasta/reticulo_endoplasmatico_rugoso.aseprite"
+dest_files=["res://.godot/imported/reticulo_endoplasmatico_rugoso.aseprite-f06b11d8fbccb4e10548b8a9c64c89fc.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+layer/split_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1

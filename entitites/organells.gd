@@ -4,7 +4,18 @@ class_name Organells
 
 @export var texture: Sprite2D
 @export var actions: Array[OrganelleAction]
+
+@onready var hud = get_tree().get_first_node_in_group("hud")
+
 var is_selected: bool
+var upgrade_levels: Dictionary = {}
+
+
+
+func get_upgrade_level(action_name: String) -> int:
+	if upgrade_levels.has(action_name):
+		return upgrade_levels[action_name]
+	return 0
 
 func _ready() -> void:
 	var outline_shader_resource: Shader = load("res://entitites/core/outline.gdshader")

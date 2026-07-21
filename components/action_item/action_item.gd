@@ -6,11 +6,11 @@ extends MarginContainer
 @onready var details_panel: PanelContainer = $ActionPanel/CostHBox/ButtonMargin/UpgradeButton/DetailsPanel
 
 
-func setup_action(action_data: OrganelleAction, target_function: Callable) -> void:
+func setup_action(action_data: OrganelleAction, target_function: Callable, current_level: int) -> void:
 	action_name_label.text = action_data.action_name
 	currency_icon.texture = action_data.icon
 	
-	details_panel.setup(action_data)
+	details_panel.setup(action_data, current_level)
 	var connections: Array = upgrade_button.pressed.get_connections()
 	
 	for connection in connections:

@@ -4,34 +4,87 @@
 [ext_resource type="Script" uid="uid://bkorkjon8ilrr" path="res://systems/organelle_action/organelle_action.gd" id="2_gv6go"]
 [ext_resource type="Script" uid="uid://cled3hxynf7x1" path="res://systems/items/slot_data.gd" id="3_qofkc"]
 [ext_resource type="Texture2D" uid="uid://4mljclylaiaj" path="res://entitites/atp/atp.aseprite" id="4_35ene"]
+[ext_resource type="Resource" uid="uid://baxfqjel3b4pj" path="res://systems/items/o2.tres" id="4_vsk0b"]
+[ext_resource type="Resource" uid="uid://b8lufkiebxtge" path="res://systems/items/glucose.tres" id="5_6nkf3"]
 [ext_resource type="Texture2D" uid="uid://depgnn6fpojl1" path="res://entitites/mitocondria/mitochondria.aseprite" id="5_gv6go"]
-[ext_resource type="Script" uid="uid://j0c3thfp4bnj" path="res://systems/organelle_action/upgrade_tier.gd" id="6_n5gv4"]
 [ext_resource type="Resource" uid="uid://cvfvvgkvjfv1s" path="res://systems/items/ATP.tres" id="6_vsk0b"]
+[ext_resource type="Script" uid="uid://bujl3wpkhb250" path="res://systems/organelle_action/standard_action.gd" id="8_vry7h"]
 [ext_resource type="Texture2D" uid="uid://dx0njc8eyduje" path="res://entitites/mitocondria/mitochondria_icon.aseprite" id="8_vsk0b"]
+[ext_resource type="Script" uid="uid://ctq4an0ooqvbe" path="res://systems/organelle_action/upgrade_action.gd" id="10_bci00"]
+[ext_resource type="Script" uid="uid://j0c3thfp4bnj" path="res://systems/organelle_action/upgrade_tier.gd" id="11_bci00"]
+[ext_resource type="Resource" uid="uid://c4ytvv57ko3ed" path="res://systems/items/RNA.tres" id="12_bom6d"]
 
-[sub_resource type="Resource" id="Resource_vry7h"]
+[sub_resource type="Resource" id="Resource_bci00"]
+script = ExtResource("3_qofkc")
+item = ExtResource("4_vsk0b")
+amount = 1
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_bom6d"]
+script = ExtResource("3_qofkc")
+item = ExtResource("5_6nkf3")
+amount = 1
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_ba8c7"]
 script = ExtResource("3_qofkc")
 item = ExtResource("6_vsk0b")
 amount = 2
 metadata/_custom_type_script = "uid://cled3hxynf7x1"
 
-[sub_resource type="Resource" id="Resource_vv1vn"]
-script = ExtResource("2_gv6go")
+[sub_resource type="Resource" id="Resource_a8rwa"]
+script = ExtResource("8_vry7h")
+costs = Array[ExtResource("3_qofkc")]([SubResource("Resource_bci00"), SubResource("Resource_bom6d")])
+results = Array[ExtResource("3_qofkc")]([SubResource("Resource_ba8c7")])
+task_time = 5
 action_name = "Gerar ATP"
-description = "Gera  2  ATP's  Usando  uma  molecula  de  Glicose e Oxigênio"
+description = "Usa  Oxigenio  e  Glicose  para  produzir  ATP"
 icon = ExtResource("4_35ene")
 method_to_call = "_generate_atp"
-task_time = 2
-result = Array[ExtResource("3_qofkc")]([SubResource("Resource_vry7h")])
-metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+metadata/_custom_type_script = "uid://bujl3wpkhb250"
 
-[sub_resource type="Resource" id="Resource_n5gv4"]
-script = ExtResource("2_gv6go")
-action_name = "1 + Mitocondria"
-description = "Gasta Muito ATP para gerar outra mitocondria"
+[sub_resource type="Resource" id="Resource_ygh51"]
+script = ExtResource("3_qofkc")
+item = ExtResource("6_vsk0b")
+amount = 10
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_4ocad"]
+script = ExtResource("3_qofkc")
+item = ExtResource("12_bom6d")
+amount = 5
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_cb316"]
+script = ExtResource("11_bci00")
+costs = Array[ExtResource("3_qofkc")]([SubResource("Resource_ygh51"), SubResource("Resource_4ocad")])
+metadata/_custom_type_script = "uid://j0c3thfp4bnj"
+
+[sub_resource type="Resource" id="Resource_cfios"]
+script = ExtResource("3_qofkc")
+item = ExtResource("6_vsk0b")
+amount = 30
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_2ek07"]
+script = ExtResource("3_qofkc")
+item = ExtResource("12_bom6d")
+amount = 15
+metadata/_custom_type_script = "uid://cled3hxynf7x1"
+
+[sub_resource type="Resource" id="Resource_kvvbx"]
+script = ExtResource("11_bci00")
+costs = Array[ExtResource("3_qofkc")]([SubResource("Resource_cfios"), SubResource("Resource_2ek07")])
+metadata/_custom_type_script = "uid://j0c3thfp4bnj"
+
+[sub_resource type="Resource" id="Resource_narrx"]
+script = ExtResource("10_bci00")
+upgrade_tiers = Array[ExtResource("11_bci00")]([SubResource("Resource_cb316"), SubResource("Resource_kvvbx")])
+action_name = "Melhorar Produção"
+description = "Melhora  a  produção  de  ATP"
 icon = ExtResource("8_vsk0b")
 method_to_call = "_upgrade"
-metadata/_custom_type_script = "uid://bkorkjon8ilrr"
+metadata/_custom_type_script = "uid://ctq4an0ooqvbe"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vry7h"]
 
@@ -115,9 +168,10 @@ _data = {
 }
 
 [node name="mitochondria" type="Node2D" unique_id=1912856360 node_paths=PackedStringArray("texture")]
+rotation = -0.028937565
 script = ExtResource("1_841oe")
 texture = NodePath("MTexture")
-actions = Array[ExtResource("2_gv6go")]([SubResource("Resource_vv1vn"), SubResource("Resource_n5gv4")])
+actions = Array[ExtResource("2_gv6go")]([SubResource("Resource_a8rwa"), SubResource("Resource_narrx")])
 
 [node name="MTexture" type="Sprite2D" parent="." unique_id=1056246372]
 material = SubResource("ShaderMaterial_vry7h")

@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://dnuwiawg3yhve" path="res://entitites/celula/celula.gd" id="1_7oi4e"]
 [ext_resource type="Texture2D" uid="uid://cnu0dfammtyem" path="res://entitites/citoplasma/citoplasma.aseprite" id="1_tyvlf"]
 [ext_resource type="PackedScene" uid="uid://oto5oi1q3cka" path="res://entitites/core/core.tscn" id="2_d2c0f"]
+[ext_resource type="PackedScene" uid="uid://6g6m0v3mf0v5" path="res://entitites/mitocondria/mitochondria.tscn" id="4_7oi4e"]
+[ext_resource type="Script" uid="uid://dicmsoj6xkp44" path="res://entitites/reticulo_liso.gd" id="5_0pt36"]
+[ext_resource type="Texture2D" uid="uid://dnbtskbvxh0cc" path="res://entitites/Nova pasta/reticulo_endoplasmatico_liso.aseprite" id="5_6hqw7"]
+[ext_resource type="Script" uid="uid://bwmeh1rkcn2cb" path="res://entitites/reticulo_rugoso.gd" id="7_1vkdc"]
+[ext_resource type="Texture2D" uid="uid://c5watqceb1mmh" path="res://entitites/Nova pasta/reticulo_endoplasmatico_rugoso.aseprite" id="8_pyynp"]
 
 [node name="Celula" type="Node2D" unique_id=101789754]
 script = ExtResource("1_7oi4e")
@@ -17,3 +22,25 @@ texture = ExtResource("1_tyvlf")
 
 [node name="nucleos" parent="Organelles" unique_id=827464486 instance=ExtResource("2_d2c0f")]
 position = Vector2(-6, -21)
+
+[node name="mitochondria" parent="Organelles" unique_id=1912856360 instance=ExtResource("4_7oi4e")]
+position = Vector2(59, 8)
+rotation = -0.4598595
+
+[node name="ReticuloLiso" type="Node2D" parent="Organelles" unique_id=1058019990 node_paths=PackedStringArray("texture")]
+script = ExtResource("5_0pt36")
+texture = NodePath("Texture")
+
+[node name="Texture" type="Sprite2D" parent="Organelles/ReticuloLiso" unique_id=1587001512]
+position = Vector2(-54, 42)
+rotation = 0.6915717
+texture = ExtResource("5_6hqw7")
+
+[node name="ReticuloRugoso" type="Node2D" parent="Organelles" unique_id=2070352019 node_paths=PackedStringArray("texture")]
+position = Vector2(0, -22)
+script = ExtResource("7_1vkdc")
+texture = NodePath("Texture")
+
+[node name="Texture" type="Sprite2D" parent="Organelles/ReticuloRugoso" unique_id=1822818687]
+position = Vector2(-6, 1)
+texture = ExtResource("8_pyynp")

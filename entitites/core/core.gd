@@ -31,9 +31,9 @@ func _on_atp_decrease_timer_timeout() -> void:
 	if atp_progress_bar.value == 0:
 		print("você perdeu!") # Fazer a Tela de GameOver
 
-func _on_restore_atp(action_resource: OrganelleAction) -> void:
-	var costs = action_resource.cost
-	var results = action_resource.result
+func _on_restore_atp(action_resource: StandardAction) -> void:
+	var costs = action_resource.costs
+	var results = action_resource.results
 	
 	for cost in costs:
 		if !inventory_ref.has_item(cost.item.name, cost.amount):
@@ -56,4 +56,5 @@ func _on_mouse_detector_mouse_exited() -> void:
 	if !is_selected:
 		atp_decrease_hide_timer.start()
 func _on_atp_decrease_hide_timer_timeout() -> void:
-	atp_progress_bar.hide()
+	if !is_selected:
+		atp_progress_bar.hide()
